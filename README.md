@@ -23,9 +23,9 @@ npm run build        # must finish with no errors before you submit
 
 | Item | Your answer |
 | --- | --- |
-| Group number | |
-| Section | |
-| Repository URL | |
+| Group number | 12 |
+| Section | IT3-a |
+| Repository URL | https://github.com/nurjussienmacapanton-web/ccc181-week10-group12.git |
 
 ## Members (each member fills in their own row in their own commit)
 
