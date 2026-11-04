@@ -1,17 +1,7 @@
 /* =======================================================================
    MEMBER 2  |  nav.css  |  Navigation bar (Flexbox) + footer (CSS Grid)
-   Branch: feature/nav-<lastname>
+   Branch: feature/nav-<macapanton>
    -----------------------------------------------------------------------
-   MOBILE-FIRST RULES
-   1. Write the PHONE styles first, with NO media query.
-   2. Use min-width media queries ONLY. Never max-width.
-   3. Use rem or % (thin borders may use px).
-   4. Edit ONLY this file. Use the --variables from reset.css.
-   5. Do NOT set side padding or max-width here: .container (base.css) does it.
-   ======================================================================= */
-
-
-/* ---- 1. PHONE (no media query) ---------------------------------------*/
 .site-header {
   background: var(--navy);
   color: #fff;
