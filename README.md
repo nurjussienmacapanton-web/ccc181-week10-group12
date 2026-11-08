@@ -70,3 +70,126 @@ Our group learned how to make a website responsive using CSS media queries. We u
 Aside from web development, we gained experience using Git and GitHub for teamwork. We learned how to create branches, commit changes, push our work, and submit Pull Requests for review.
 
 Overall, this activity helped us improve our coding skills, problem-solving abilities, and collaboration as a team.
+
+
+
+---
+
+## CampusConnect Login System (Week 10–13)
+
+### Project Overview
+
+CampusConnect is a mobile-first login system developed using React, TypeScript, and Express.js. It allows students to log in using their email and password, securely authenticate through JSON Web Tokens (JWT), and access their profile information.
+
+### How to Run the Application
+
+**1. Frontend Setup**
+
+Open a terminal in the root project folder:
+
+```bash
+npm install
+npm run dev
+```
+
+Open the local URL displayed in the terminal, usually `http://localhost:5173`.
+
+**2. Backend Setup**
+
+Open another terminal:
+
+```bash
+cd server
+npm install
+npm start
+```
+
+The backend API runs at `http://localhost:3000`.
+
+### Demo Account
+
+| Field | Value |
+|---|---|
+| Email | student@campusconnect.test |
+| Password | Campus26 |
+
+### Environment Configuration
+
+The project uses two environment example files:
+
+**Root `.env.example`**
+```env
+VITE_API_URL=http://localhost:3000/api/v1
+```
+
+**`server/.env.example`**
+```env
+PORT=3000
+JWT_SECRET=replace-with-a-demo-secret
+CLIENT_ORIGIN=http://localhost:5173
+```
+
+Copy these example files into their respective `.env` files when setting up the project locally. Do not commit actual `.env` files to GitHub.
+
+### API Endpoints Summary
+
+Base URL: `http://localhost:3000/api/v1`
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/health` | Checks API status |
+| POST | `/sessions` | Authenticates a student |
+| GET | `/users/me` | Retrieves the authenticated user's profile |
+
+For complete request and response examples, see [API Specification](docs/API-SPEC.md).
+
+### Authentication Features
+
+- Email and password validation.
+- Login using the demo account.
+- Password verification using bcryptjs.
+- JWT-based authentication.
+- Session persistence using sessionStorage.
+- Automatic session verification after refreshing the page.
+- Logout functionality.
+- Error messages for invalid credentials and unavailable backend connections.
+
+### Postman API Testing
+
+The CampusConnect API was tested using Postman.
+
+The collection includes the following seven test cases:
+
+1. Health Check – 200 OK
+2. Successful Login – 200 OK
+3. Wrong Password – 401 Unauthorized
+4. Unknown Email – 401 Unauthorized
+5. Empty Login Request – 400 Bad Request
+6. Get Current User Without Token – 401 Unauthorized
+7. Get Current User With Token – 200 OK
+
+Postman collection: `docs/postman/CampusConnect.postman_collection.json`
+
+### Login System Screenshots
+
+The following screenshots demonstrate the login system and API testing results.
+
+**Postman Screenshots**
+- `screenshots/postman-health.png`
+- `screenshots/postman-login-200.png`
+- `screenshots/postman-login-401.png`
+- `screenshots/postman-me-401.png`
+
+**Frontend Screenshots (360px)**
+- `screenshots/login-fail-360.png`
+- `screenshots/login-success-360.png`
+
+### Production Build
+
+To verify that the frontend is ready for production, run:
+
+```bash
+npm run build
+```
+
+The build should complete without errors.
