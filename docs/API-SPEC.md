@@ -29,6 +29,19 @@ Checks whether the backend server is running.
 
 **Successful Response – 200 OK**
 
+
+# CampusConnect API Specification
+
+Base URL: `http://localhost:3000/api/v1`
+
+## 1. Health Check
+
+**Endpoint:** `GET /health`
+
+Checks whether the CampusConnect API is running.
+
+**Success Response (200):**
+
 ```json
 {
   "status": "ok"
@@ -45,6 +58,13 @@ Authenticates a user using their email and password. If the credentials are corr
 - **Content-Type:** `application/json`
 
 **Request Body**
+## 2. Login
+
+**Endpoint:** `POST /sessions`
+
+Authenticates a student using their email and password.
+
+**Request Body:**
 
 ```json
 {
@@ -58,6 +78,11 @@ Authenticates a user using their email and password. If the credentials are corr
 ```json
 {
   "token": "your_jwt_token",
+**Success Response (200):**
+
+```json
+{
+  "token": "your-jwt-token",
   "user": {
     "id": 1,
     "name": "Demo Student",
@@ -101,6 +126,24 @@ Authorization: Bearer your_jwt_token
 ```
 
 **Successful Response – 200 OK**
+**Error Responses:**
+
+- `400 Bad Request` – Email and password are required.
+- `401 Unauthorized` – Invalid email or password.
+
+## 3. Get Current User
+
+**Endpoint:** `GET /users/me`
+
+Returns the profile of the currently authenticated student.
+
+**Request Header:**
+
+```http
+Authorization: Bearer your-jwt-token
+```
+
+**Success Response (200):**
 
 ```json
 {
@@ -113,6 +156,7 @@ Authorization: Bearer your_jwt_token
 **Error Response – 401 Unauthorized**
 
 Returned when the token is missing, invalid, or expired.
+**Error Response (401):**
 
 ```json
 {
@@ -173,3 +217,18 @@ The backend requires the following environment variables:
 | CLIENT_ORIGIN | Allowed frontend origin |
 
 **Note:** The `.env` file must not be uploaded to GitHub. Use `.env.example` as a reference.
+## 4. Events API (Design Only)
+
+The following endpoints are proposed for future development. They are not implemented in the current CampusConnect login activity.
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/events` | Retrieve all events |
+| GET | `/events/:id` | Retrieve a specific event |
+| POST | `/events` | Add a new event |
+| PATCH | `/events/:id` | Change part of an event's information |
+| DELETE | `/events/:id` | Delete an event |
+| GET | `/events?month=11` | Filter events by month |
+
+**Note:** These Events API endpoints are design proposals only and are not part of the implemented backend.
+

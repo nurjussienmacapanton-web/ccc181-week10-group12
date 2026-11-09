@@ -6,3 +6,9 @@ dist
 # Environment variables
 .env
 **/.env
+server/node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
