@@ -3,6 +3,9 @@ dist
 .DS_Store
 *.log
 
+# Environment variables
+.env
+**/.env
 server/node_modules/
 
 # Environment variables

@@ -71,6 +71,81 @@ Aside from web development, we gained experience using Git and GitHub for teamwo
 
 Overall, this activity helped us improve our coding skills, problem-solving abilities, and collaboration as a team.
 
+---
+
+# Backend Development – CampusConnect Part 2
+
+## Backend Overview
+
+The CampusConnect backend is developed using Node.js and Express.js. It provides API endpoints for user authentication, login verification, and retrieving the currently logged-in user's information.
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- JSON Web Token (JWT)
+- bcryptjs
+- CORS
+- dotenv
+
+## Backend API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/v1/health` | Checks if the API is running |
+| POST | `/api/v1/sessions` | Authenticates a user |
+| GET | `/api/v1/users/me` | Retrieves the logged-in user's information |
+
+For detailed endpoint information, request examples, and response codes, see [`docs/API-SPEC.md`](docs/API-SPEC.md).
+
+## How to Run the Backend
+
+1. Open a terminal in the project folder.
+2. Navigate to the server directory:
+
+```bash
+cd server
+```
+
+3. Install the dependencies:
+
+```bash
+npm install
+```
+
+4. Create a `.env` file inside the `server` folder and configure the following variables:
+
+```env
+PORT=3000
+JWT_SECRET=your-long-random-secret
+CLIENT_ORIGIN=http://localhost:5173
+```
+
+5. Start the backend:
+
+```bash
+npm start
+```
+
+The backend API will run at:
+
+`http://localhost:3000`
+
+## Demo Login Account
+
+| Field | Value |
+|---|---|
+| Email | student@campusconnect.test |
+| Password | Campus26 |
+| Name | Demo Student |
+
+## Security Notes
+
+- Passwords are verified using bcryptjs.
+- JWT tokens expire after one hour.
+- Protected endpoints require a valid Bearer token.
+- The `.env` file must not be committed or uploaded to GitHub.
+- Use `.env.example` as a reference for environment configuration.
 
 
 ---
